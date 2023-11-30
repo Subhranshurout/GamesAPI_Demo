@@ -112,13 +112,7 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = myTable.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GamesCell
-        let game = details[indexPath.row]
-        cell.titleLbl.text = "Title : \(game.title)"
-        cell.platformLbl.text = "Platform : \(game.platform)"
-        cell.releaseLbl.text = "Release Date : \(game.release_date)"
-        cell.genreLbl.text = "Genre : \(game.genre)"
-        
-        cell.imageLbl.kf.setImage(with: URL(string: game.thumbnail),placeholder: UIImage(named: "download"))
+        cell.prepareUI(game: details[indexPath.row])
         return cell
     }
     

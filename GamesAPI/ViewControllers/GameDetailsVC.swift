@@ -120,7 +120,7 @@ extension GameDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! screenShotCell
-        cell.imageView.kf.setImage(with: URL(string: screenShorts[indexPath.row]))
+        cell.prepareUI(game: screenShorts[indexPath.row])
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

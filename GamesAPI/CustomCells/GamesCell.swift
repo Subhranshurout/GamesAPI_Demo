@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class GamesCell: UITableViewCell {
 
@@ -19,7 +20,13 @@ class GamesCell: UITableViewCell {
         // Initialization code
         self.imageLbl.layer.cornerRadius = 10.0
     }
-
+    func prepareUI(game : GameDetails) {
+        titleLbl.text = "Title : \(game.title)"
+        platformLbl.text = "Platform : \(game.platform)"
+        releaseLbl.text = "Release Date : \(game.release_date)"
+        genreLbl.text = "Genre : \(game.genre)"
+        imageLbl.kf.setImage(with: URL(string: game.thumbnail),placeholder: UIImage(named: "download"))
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
